@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>createLeague</title>
+    <script src="https://kit.fontawesome.com/0b1ec6b880.js" crossorigin="anonymous"></script>
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--===============================================================================================-->
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet"  th:href="@{/css/utils.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <!--===============================================================================================-->
+</head>
+<body>
+
+<header class="header-wrap">
+    <div class="header-block">
+        <h1 class="txt4">eManager</h1>
+    </div>
+
+    <div class="header-block">
+        <a href="" class="txt4">Mes ligues</a>
+    </div>
+
+
+    <div sec:authorize= "isAnonymous()" class="header-block float-r">
+        <boutton class="btn"><a class="txt4" href="">s'inscrire</a></boutton>
+    </div>
+
+    <div sec:authorize="isAnonymous()" class="header-block float-r">
+        <a class="txt4" href="">se connecter</a>
+    </div>
+
+
+
+    <div sec:authorize="isAuthenticated()" class="header-block float-r">
+        <a class="txt4" href="">se déconnecter</a>
+    </div>
+
+    <div sec:authorize= "isAuthenticated()" class="header-block float-r">
+        <span sec:authentication="name"></span>
+    </div>
+
+</header>
+
+<div class="block-blanc">
+    <form class="m-t-10" action="" method="post">
+    <div class="wrap-column100">
+        <span class="text-title4 flex-c">Crée ta ligue</span>
+        <div class="wrap-block100">
+
+            <div class="wrap-block50">
+                <div class="wrap-column">
+
+
+
+                        <div class="rs3-wrap-input100">
+                            <input id= "lec" type="radio" name="leagueRegion" value="lec">
+                            <label for="lec">LEC</label>
+                        </div>
+                        <div class="rs3-wrap-input100 m-t-10">
+                            <input id= "lfl" type="radio" name="leagueRegion" value="lfl">
+                            <label for="lfl">LFL</label>
+                        </div>
+                        <div class="rs3-wrap-input100 m-t-10">
+                            <input   id= "lck" type="radio" name="leagueRegion" value="lck">
+                            <label   for="lck">LCK</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="wrap-block50">
+                <div class="wrap-column">
+                    <div class="rs3-wrap-input100 validate-input m-t-20">
+                        <input class="input100"  name="leagueName" placeholder="nom de ta ligue" required="true">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-row flex-c">
+
+                        <div class="rs4-wrap-input50 validate-input m-t-20">
+                            <input id= "priv" type="radio" name="leagueStatus" value="publique">
+                            <label class="input-label"for="priv">privée</label>
+                        </div>
+
+                        <div class="rs4-wrap-input50 m-t-20">
+                            <input class="input-label"id= "publ" type="radio" name="leagueStatus" value="privée">
+                            <label class="input-label"for="publ">public</label>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <button class= "btn m-t-20">Commencer</button>
+        </form>
+    </div>
+</div>
+
+
+
+<div class="block-footer">
+<div class="wrap-block50">
+    <div class="wrap-column">
+        <ul class="list-50 txt4">
+            <li> <a class="txt4" href="">politique de confidentialité</a></li>
+            <li><a class="txt4"href="">conditions d'utilisation</a></li>
+            <li><a class="txt4"href="">contact</a></li>
+            <li><a class="txt4 text-up"href="">FAQ</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="wrap-block50">
+    <div class="wrap-column">
+        <span class="txt4">Nous suivre</span>
+        <ul class="list-media txt4">
+            <li>  <a href=""><i class="fa fa-facebook social-icone"></i></a></li>
+            <li>  <a href=""><i class="fa fa-twitter social-icone"></i></a></li>
+            <li>  <a href=""><i class="fa fa-instagram social-icone"></i></a></li>
+            <li>  <a href=""><i class="fa fa-google social-icone"></i></a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="wrap-block50">
+    <div class="wrap-column">
+        <ul class="list-50 txt4">
+            <li><a class="txt4" href=""> Qui sommes nous</a> </li>
+            <li><a class="txt4" href="">A propos</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+
+
+
+
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <script>
+        $(".selection-2").select2({
+            minimumResultsForSearch: 20,
+            dropdownParent: $('#dropDownSelect1')
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="vendor/daterangepicker/moment.min.js"></script>
+    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="js/main.js"></script>
+
+
+</body>
+</html>
